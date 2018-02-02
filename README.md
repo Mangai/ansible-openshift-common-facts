@@ -37,7 +37,7 @@ name: Example Playbook
 hosts: localhost
 tasks:
 - import_role:
-    name: openshift_common_facts
+    name: siamaksade.openshift_common_facts
   vars:
     set_hostname_suffix: false
     oc_token: "lg4a*******"
