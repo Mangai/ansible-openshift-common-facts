@@ -1,4 +1,5 @@
 Ansible Role: Commons Facts on OpenShift
+[![Build Status](https://travis-ci.org/siamaksade/ansible-openshift-common-facts.svg?branch=master)](https://travis-ci.org/siamaksade/ansible-openshift-common-facts)
 =========
 
 Ansible Role for setting commons facts such as apps hostname and OpenShift CLI options.
