@@ -41,8 +41,7 @@
     oc_kube_config is defined and
     oc_kube_config is not none and 
     oc_kube_config|trim() != "" and
-    kube_config_result.stat.exists and
-    kube_config_result.stat.isdir
+    kube_config_result.stat.exists
 
 # set auth token
 - name: check if token file exists
