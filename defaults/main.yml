@@ -1,5 +1,6 @@
 ---
 set_hostname_suffix: true
+project_suffix: tmp
 
 # oc_kube_config: 
 # oc_token: 
