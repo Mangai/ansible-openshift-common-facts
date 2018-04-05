@@ -1,29 +1,6 @@
 ---
 # Common Facts
 
-# set openshift master fact
-- name: get openshift master
-  shell: "oc whoami --show-server"
-  register: openshift_master_result
-  when: >
-    openshift_master is not defined or
-    openshift_master is none or
-    openshift_master|trim() == ""
-  changed_when: false
-
-- name: set openshift master fact
-  set_fact:
-    openshift_master: "{{ openshift_master_result.stdout }}"
-  when: >
-    openshift_master is not defined or
-    openshift_master is none or
-    openshift_master|trim() == ""
-
-# set cli options (.server)
-- name: set openshift cli options (server)
-  set_fact:
-    openshift_cli: "oc --server={{ openshift_master }} --insecure-skip-tls-verify=true"
-
 # set cli options (.kube)
 - name: check if kube config dir exists
   stat:
@@ -70,6 +47,28 @@
     oc_token is defined and 
     oc_token is not none and 
     oc_token|trim() != ""
+
+# set openshift master fact
+- name: get openshift master
+  shell: "{{ openshift_cli }} whoami --show-server"
+  register: openshift_master_result
+  when: >
+    openshift_master is not defined or
+    openshift_master is none or
+    openshift_master|trim() == ""
+  changed_when: false
+
+- name: set openshift master fact
+  set_fact:
+    openshift_master: "{{ openshift_master_result.stdout }}"
+  when: >
+    openshift_master is not defined or
+    openshift_master is none or
+    openshift_master|trim() == ""
+
+- name: set openshift cli options (server)
+  set_fact:
+    openshift_cli: "{{ openshift_cli }} --server={{ openshift_master }} --insecure-skip-tls-verify=true"
 
 # set openshift user
 - name: get openshift user
