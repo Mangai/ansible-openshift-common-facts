@@ -46,8 +46,8 @@ The following tables shows the version combinations that are tested and verified
 | 1.0.x   | 3.7.x   |
 | 1.1.x   | 3.9.x, 3.10.x, 3.11.x |
 
-Note that if a version combination is not listed above, it does **NOT** mean that it won't work on that 
-version. The above table is merely the combinations that we have verified and tested.
+Note that if a version combination is not listed above, it does **NOT** mean that the latest role version 
+won't work on a new OpenShift version. The above table is merely the combinations that we have tested and verified.
 
 
 Example Playbook
